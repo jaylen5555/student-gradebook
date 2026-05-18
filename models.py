@@ -1,6 +1,7 @@
+# Base class for general person data
 class Person:
     def __init__(self, name):
-        self._name = name
+        self._name = name  # Protected attribute for encapsulation
 
     def get_name(self):
         return self._name
@@ -11,12 +12,12 @@ class Person:
     def __str__(self):
         return f"Person: {self._name}"
 
-
+# Derived student class that handles grades
 class Student(Person):
     def __init__(self, student_id, name):
-        super().__init__(name)
-        self.__student_id = student_id
-        self.grades = {}
+        super().__init__(name)  # Links back to base Person class
+        self.__student_id = student_id  # Private attribute
+        self.grades = {}  # Dictionary to hold scores
 
     def get_student_id(self):
         return self.__student_id
@@ -27,11 +28,13 @@ class Student(Person):
     def get_grades(self):
         return self.grades
 
+    # Figures out the student's average score
     def calculate_average(self):
         if not self.grades:
             return 0.0
         return sum(self.grades.values()) / len(self.grades)
 
+    # Overrides string format to show student details cleanly
     def __str__(self):
         avg = self.calculate_average()
         return f"ID: {self.__student_id} | Student: {self.get_name()} | Average: {avg:.2f}"
