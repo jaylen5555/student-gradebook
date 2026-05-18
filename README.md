@@ -44,4 +44,6 @@ The architecture utilizes standard object-oriented programming layout:
    | + calculate_average()                 |
    | + __str__()                           |
    +---------------------------------------+
-   ... remote res
+  
+## 4. Test Report
+Verification testing matrix has been completely compiled and verified.
